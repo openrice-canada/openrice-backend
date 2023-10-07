@@ -18,4 +18,8 @@ public class PaymentMethodService {
     public Iterable<PaymentMethodEntity> getAllPaymentMethods() {
         return paymentMethodRepository.findAll();
     }
+
+    public PaymentMethodEntity createPaymentMethodEntity(PaymentMethodEntity paymentMethodEntity) {
+        return paymentMethodRepository.save(paymentMethodEntity);
+    }
 }
