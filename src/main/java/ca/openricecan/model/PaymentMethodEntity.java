@@ -16,8 +16,8 @@ public class PaymentMethodEntity {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
+      name = "UUID",
+      strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(name = "payment_method_id", updatable = false, nullable = false)
     private UUID paymentMethodId;
@@ -26,5 +26,5 @@ public class PaymentMethodEntity {
     private String name;
 
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private final ZonedDateTime createdAt = ZonedDateTime.now();
 }

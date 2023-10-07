@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("paymentMethod")
+@RequestMapping(path = "paymentMethod")
 public class PaymentMethodController {
 
     private final PaymentMethodService paymentMethodService;
@@ -16,13 +16,13 @@ public class PaymentMethodController {
         this.paymentMethodService = paymentMethodService;
     }
 
-    @GetMapping("")
+    @GetMapping
     public Iterable<PaymentMethodEntity> getPaymentMethodList() {
         return paymentMethodService.getAllPaymentMethods();
     }
 
-    @PostMapping("/createPaymentMethod")
-    public PaymentMethodEntity createPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
-        return paymentMethodService.createPaymentMethod(paymentMethod);
+    @PostMapping(path = "/createPaymentMethod")
+    public void createPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
+        paymentMethodService.createPaymentMethod(paymentMethod);
     }
 }
