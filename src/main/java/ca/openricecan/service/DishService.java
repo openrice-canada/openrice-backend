@@ -18,4 +18,8 @@ public class DishService {
     public Iterable<DishEntity> getAllDishes() {
         return dishRepository.findAll();
     }
+
+    public DishEntity createDishEntity(DishEntity dishEntity) {
+        return dishRepository.save(dishEntity);
+    }
 }
