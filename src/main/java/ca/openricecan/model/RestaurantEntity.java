@@ -1,4 +1,4 @@
-package org.example.model;
+package ca.openricecan.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import java.time.ZonedDateTime;
