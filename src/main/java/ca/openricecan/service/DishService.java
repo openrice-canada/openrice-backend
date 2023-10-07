@@ -7,8 +7,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DishService {
+
+    private final DishRepository dishRepository;
+
     @Autowired
-    private DishRepository dishRepository;
+    public DishService(DishRepository dishRepository) {
+        this.dishRepository = dishRepository;
+    }
 
     public Iterable<DishEntity> getAllDishes() {
         return dishRepository.findAll();
