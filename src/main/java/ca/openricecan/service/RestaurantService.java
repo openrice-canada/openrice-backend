@@ -7,8 +7,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RestaurantService {
+
+    private final RestaurantRepository restaurantRepository;
+
     @Autowired
-    private RestaurantRepository restaurantRepository;
+    public RestaurantService(RestaurantRepository restaurantRepository) {
+        this.restaurantRepository=restaurantRepository;
+    }
 
     public Iterable<RestaurantEntity> getAllRestaurants() {
         return restaurantRepository.findAll();

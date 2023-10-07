@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("restaurant")
 public class RestaurantController {
-    @Autowired
-    private RestaurantService restaurantService;
+    private final RestaurantService restaurantService;
+
+    public RestaurantController(RestaurantService restaurantService) {
+        this.restaurantService = restaurantService;
+    }
 
     @GetMapping("")
     public Iterable<RestaurantEntity> getRestaurantList() {
