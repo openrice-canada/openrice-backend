@@ -22,7 +22,7 @@ public class PaymentMethodController {
     }
 
     @PostMapping("/createPaymentMethod")
-    public PaymentMethodEntity newPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
-        return paymentMethodService.createPaymentMethodEntity(paymentMethod);
+    public PaymentMethodEntity createPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
+        return paymentMethodService.createPaymentMethod(paymentMethod);
     }
 }

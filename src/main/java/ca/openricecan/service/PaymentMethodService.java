@@ -19,7 +19,7 @@ public class PaymentMethodService {
         return paymentMethodRepository.findAll();
     }
 
-    public PaymentMethodEntity createPaymentMethodEntity(PaymentMethodEntity paymentMethodEntity) {
+    public PaymentMethodEntity createPaymentMethod(PaymentMethodEntity paymentMethodEntity) {
         return paymentMethodRepository.save(paymentMethodEntity);
     }
 }
