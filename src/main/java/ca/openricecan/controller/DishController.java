@@ -19,7 +19,7 @@ public class DishController {
     }
 
     @PostMapping("/createDish")
-    public DishEntity newDish(@RequestBody DishEntity dishEntity) {
-        return dishService.createDishEntity(dishEntity);
+    public DishEntity createDish(@RequestBody DishEntity dishEntity) {
+        return dishService.createDish(dishEntity);
     }
 }
