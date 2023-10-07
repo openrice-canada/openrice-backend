@@ -1,13 +1,16 @@
 package ca.openricecan.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "restaurant")
+@Getter()
+@Setter()
 public class RestaurantEntity {
   @Id
   @SequenceGenerator(
@@ -66,116 +69,4 @@ public class RestaurantEntity {
 
   @Column(name = "active")
   private boolean active;
-
-  public UUID getRestaurantId() {
-    return restaurantId;
-  }
-
-  public void setRestaurantId(UUID restaurantId) {
-    this.restaurantId = restaurantId;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public UUID getDistrictId() {
-    return districtId;
-  }
-
-  public void setDistrictId(UUID districtId) {
-    this.districtId = districtId;
-  }
-
-  public String getCoordinate() {
-    return coordinate;
-  }
-
-  public void setCoordinate(String coordinate) {
-    this.coordinate = coordinate;
-  }
-
-  public String getPostalCode() {
-    return postalCode;
-  }
-
-  public void setPostalCode(String postalCode) {
-    this.postalCode = postalCode;
-  }
-
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  public String getIntro() {
-    return intro;
-  }
-
-  public void setIntro(String intro) {
-    this.intro = intro;
-  }
-
-  public String getOpeningHours() {
-    return openingHours;
-  }
-
-  public void setOpeningHours(String openingHours) {
-    this.openingHours = openingHours;
-  }
-
-  public UUID getPaymentMethodId() {
-    return paymentMethodId;
-  }
-
-  public void setPaymentMethodId(UUID paymentMethodId) {
-    this.paymentMethodId = paymentMethodId;
-  }
-
-  public UUID getDishId() {
-    return dishId;
-  }
-
-  public void setDishId(UUID dishId) {
-    this.dishId = dishId;
-  }
-
-  public ZonedDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(ZonedDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public ZonedDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
-  public void setModifiedAt(ZonedDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-  public boolean isActive() {
-    return active;
-  }
-
-  public void setActive(boolean active) {
-    this.active = active;
-  }
 }
