@@ -1,7 +1,7 @@
-package org.example.service;
+package ca.openricecan.service;
 
-import org.example.model.RestaurantEntity;
-import org.example.repository.RestaurantRepository;
+import ca.openricecan.model.RestaurantEntity;
+import ca.openricecan.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

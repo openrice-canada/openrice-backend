@@ -1,7 +1,6 @@
-package org.example.repository;
+package ca.openricecan.repository;
 
-import org.example.model.RestaurantEntity;
-import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
+import ca.openricecan.model.RestaurantEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RestaurantRepository extends CrudRepository<RestaurantEntity,Long> {
