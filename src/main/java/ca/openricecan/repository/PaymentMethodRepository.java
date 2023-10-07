@@ -1,11 +1,11 @@
 package ca.openricecan.repository;
 
-import ca.openricecan.model.RestaurantEntity;
+import ca.openricecan.model.PaymentMethodEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface RestaurantRepository extends CrudRepository<RestaurantEntity, UUID> {
+public interface PaymentMethodRepository extends CrudRepository<PaymentMethodEntity, UUID> {
 }
