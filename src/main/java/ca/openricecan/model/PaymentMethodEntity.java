@@ -1,12 +1,16 @@
 package ca.openricecan.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
+@Getter()
+@Setter()
 @Table(name = "paymentMethod")
 public class PaymentMethodEntity {
     @Id
@@ -23,28 +27,4 @@ public class PaymentMethodEntity {
 
     @Column(name = "created_at", updatable = false)
     private ZonedDateTime createdAt = ZonedDateTime.now();
-
-    public UUID getPaymentMethodId() {
-        return paymentMethodId;
-    }
-
-    public void setPaymentMethodId(UUID paymentMethodId) {
-        this.paymentMethodId = paymentMethodId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ZonedDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(ZonedDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 }
