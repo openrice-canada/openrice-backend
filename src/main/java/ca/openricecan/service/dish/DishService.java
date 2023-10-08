@@ -1,7 +1,7 @@
-package ca.openricecan.service;
+package ca.openricecan.service.dish;
 
-import ca.openricecan.model.DishEntity;
-import ca.openricecan.repository.DishRepository;
+import ca.openricecan.data.entity.dish.DishEntity;
+import ca.openricecan.repository.dish.DishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
