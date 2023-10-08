@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "paymentMethod")
 public class PaymentMethodController {
-
     private final PaymentMethodService paymentMethodService;
 
     @Autowired
