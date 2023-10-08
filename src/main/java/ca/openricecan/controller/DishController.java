@@ -20,7 +20,7 @@ public class DishController {
         return dishService.getAllDishes();
     }
 
-    @PostMapping(path = "/createDish")
+    @PostMapping
     public void createDish(@RequestBody DishEntity dishEntity) {
         dishService.createDish(dishEntity);
     }
