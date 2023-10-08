@@ -9,8 +9,8 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
-@Getter()
-@Setter()
+@Getter
+@Setter
 @Table(name = "paymentMethod")
 public class PaymentMethodEntity {
     @Id
