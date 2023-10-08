@@ -55,7 +55,7 @@ public class RestaurantEntity {
     private UUID dishId;
 
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private final ZonedDateTime createdAt = ZonedDateTime.now();
 
     @Column(name = "modified_at")
     private ZonedDateTime modifiedAt;
