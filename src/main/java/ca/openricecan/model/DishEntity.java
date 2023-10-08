@@ -23,5 +23,5 @@ public class DishEntity {
     private String name;
 
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private final ZonedDateTime createdAt = ZonedDateTime.now();
 }

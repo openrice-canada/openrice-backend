@@ -19,7 +19,7 @@ public class DishService {
         return dishRepository.findAll();
     }
 
-    public DishEntity createDish(DishEntity dishEntity) {
-        return dishRepository.save(dishEntity);
+    public void createDish(DishEntity dishEntity) {
+        dishRepository.save(dishEntity);
     }
 }
