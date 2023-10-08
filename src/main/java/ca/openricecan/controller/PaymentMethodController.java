@@ -1,7 +1,7 @@
 package ca.openricecan.controller;
 
-import ca.openricecan.model.PaymentMethodEntity;
-import ca.openricecan.service.PaymentMethodService;
+import ca.openricecan.data.entity.payment.PaymentMethodEntity;
+import ca.openricecan.service.payment.PaymentMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

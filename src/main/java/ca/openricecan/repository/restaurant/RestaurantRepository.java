@@ -1,6 +1,6 @@
-package ca.openricecan.repository;
+package ca.openricecan.repository.restaurant;
 
-import ca.openricecan.model.RestaurantEntity;
+import ca.openricecan.data.entity.restaurant.RestaurantEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
