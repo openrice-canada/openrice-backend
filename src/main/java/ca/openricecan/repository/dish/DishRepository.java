@@ -1,6 +1,6 @@
-package ca.openricecan.repository;
+package ca.openricecan.repository.dish;
 
-import ca.openricecan.model.DishEntity;
+import ca.openricecan.data.entity.dish.DishEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

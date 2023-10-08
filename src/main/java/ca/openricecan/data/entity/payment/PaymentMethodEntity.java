@@ -1,4 +1,4 @@
-package ca.openricecan.model;
+package ca.openricecan.data.entity.payment;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,13 +11,16 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "dish")
-public class DishEntity {
+@Table(name = "paymentMethod")
+public class PaymentMethodEntity {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "dish_id", updatable = false, nullable = false)
-    private UUID dishId;
+    @GenericGenerator(
+      name = "UUID",
+      strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "payment_method_id", updatable = false, nullable = false)
+    private UUID paymentMethodId;
 
     @Column(name = "name")
     private String name;
