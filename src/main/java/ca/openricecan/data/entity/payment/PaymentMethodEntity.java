@@ -14,11 +14,8 @@ import java.util.UUID;
 @Table(name = "paymentMethod")
 public class PaymentMethodEntity {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-      name = "UUID",
-      strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @SequenceGenerator(name = "payment_method_sequence", sequenceName = "payment_method_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_method_sequence")
     @Column(name = "payment_method_id", updatable = false, nullable = false)
     private UUID paymentMethodId;
 
