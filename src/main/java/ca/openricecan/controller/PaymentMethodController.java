@@ -20,7 +20,7 @@ public class PaymentMethodController {
         return paymentMethodService.getAllPaymentMethods();
     }
 
-    @PostMapping(path = "/createPaymentMethod")
+    @PostMapping
     public void createPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
         paymentMethodService.createPaymentMethod(paymentMethod);
     }
