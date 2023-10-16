@@ -22,5 +22,8 @@ RUN ./gradlew build --exclude-task test
 # Copy the rest of the application code
 COPY src src
 
+# Expose port 8080 for the application
+EXPOSE 8080
+
 # Specify the command to run on container start
 CMD ["./gradlew", "bootRun"]
