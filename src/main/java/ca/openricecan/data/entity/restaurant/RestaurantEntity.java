@@ -15,8 +15,7 @@ import org.springframework.data.geo.Point;
 @Table(name = "restaurant")
 public class RestaurantEntity {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(name = "restaurant_id", updatable = false, nullable = false)
     private UUID restaurantId;
 
     @Column(name = "name")
