@@ -13,8 +13,6 @@ import java.util.UUID;
 @Table(name = "restaurant")
 public class RestaurantEntity {
     @Id
-    @SequenceGenerator(name = "restaurant_sequence", sequenceName = "restaurant_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "restaurant_sequence")
     @Column(name = "restaurant_id", updatable = false, nullable = false)
     private UUID restaurantId;
 
