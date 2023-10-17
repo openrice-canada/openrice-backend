@@ -42,12 +42,6 @@ public class RestaurantEntity {
     @Column(name = "opening_hours")
     private String openingHours;
 
-    @Column(name = "payment_method_id")
-    private UUID paymentMethodId;
-
-    @Column(name = "dish_id")
-    private UUID dishId;
-
     @Column(name = "created_at", updatable = false)
     private final ZonedDateTime createdAt = ZonedDateTime.now();
 
