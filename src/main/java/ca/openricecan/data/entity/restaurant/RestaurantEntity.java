@@ -7,7 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-import org.springframework.data.geo.Point;
+import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Getter
@@ -49,8 +49,9 @@ public class RestaurantEntity {
     @Column(name = "created_at", updatable = false)
     private final ZonedDateTime createdAt = ZonedDateTime.now();
 
+    @LastModifiedDate
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt = ZonedDateTime.now();
+    private ZonedDateTime modifiedAt;
 
     @Column(name = "active")
     private boolean active;
