@@ -1,29 +1,23 @@
-# Use the official image as a parent image
+# Use an OpenJDK base image for the build stage
+FROM openjdk:19-jdk AS build
+
+# Set the working directory
+WORKDIR /workspace/app
+
+# Copy the application code to the container
+COPY . .
+
+# Build the Spring Boot application
+RUN ./gradlew bootJar --no-daemon
+
+# Use a slim version of OpenJDK 19 for the run stage
 FROM openjdk:19-jdk-slim
 
-# Set the working directory in Docker
-WORKDIR /app
-
-# Copy the Gradle wrapper JAR and properties to the Docker container at `/app`
-COPY gradle/wrapper/gradle-wrapper.jar gradle/wrapper/gradle-wrapper.jar
-COPY gradle/wrapper/gradle-wrapper.properties gradle/wrapper/gradle-wrapper.properties
-
-# Copy the Gradle wrapper script `gradlew` to the Docker container at `/app`
-COPY gradlew gradlew
-RUN chmod +x gradlew
-
-# Copy the `build.gradle` and `settings.gradle` (or `build.gradle.kts` and `settings.gradle.kts` for Kotlin DSL) to the Docker container
-COPY build.gradle build.gradle
-COPY settings.gradle settings.gradle
-
-# Cache dependencies (for faster builds)
-RUN ./gradlew build --exclude-task test
-
-# Copy the rest of the application code
-COPY src src
-
-# Expose port 8080 for the application
+# Expose port 8080
 EXPOSE 8080
 
-# Specify the command to run on container start
-CMD ["./gradlew", "bootRun"]
+# Copy the built jar from the build stage
+COPY --from=build /workspace/app/build/libs/*.jar app.jar
+
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
