@@ -12,8 +12,8 @@ import java.util.UUID;
 @Setter
 public class PhotoCategoryEntity {
   @Id
-  @SequenceGenerator(name = "restaurant_sequence", sequenceName = "restaurant_sequence", allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "restaurant_sequence")
+  @SequenceGenerator(name = "photo_category_sequence", sequenceName = "photo_category_sequence", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "photo_category_sequence")
   @Column(name = "photo_category_id", updatable = false, nullable = false)
   private UUID photoCategoryId;
 
