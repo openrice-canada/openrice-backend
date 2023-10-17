@@ -14,6 +14,8 @@ import java.util.UUID;
 @Table(name = "dish")
 public class DishEntity {
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "dish_id", updatable = false, nullable = false)
     private UUID dishId;
 

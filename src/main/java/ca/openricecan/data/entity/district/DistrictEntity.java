@@ -13,6 +13,8 @@ import java.util.UUID;
 @Table(name = "district")
 public class DistrictEntity {
     @Id
+    @SequenceGenerator(name = "district_sequence", sequenceName = "district_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "district_sequence")
     @Column(name = "district_id", updatable = false, nullable = false)
     private UUID districtId;
 
