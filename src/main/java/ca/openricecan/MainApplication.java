@@ -13,10 +13,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 @RestController
 public class MainApplication {
-  @RequestMapping
-	public String home() {
-		return "Welcome to Open Rice Canada";
-	}
+//  @RequestMapping
+//	public String home() {
+//		return "Welcome to Open Rice Canada";
+//	}
 
   public static void main(String[] args) {
         SpringApplication.run(MainApplication.class, args);
