@@ -3,9 +3,11 @@ package ca.openricecan.data.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+import org.hibernate.annotations.GenericGenerator;
 import java.time.ZonedDateTime;
 import java.util.UUID;
+
+import org.springframework.data.geo.Point;
 
 @Entity
 @Getter
@@ -25,8 +27,11 @@ public class RestaurantEntity {
     @Column(name = "district_id")
     private UUID districtId;
 
-    @Column(name = "coordinate")
-    private String coordinate;
+    @Column(name = "latitude")
+    private Float latitude;
+
+    @Column(name = "longitude")
+    private Float longitude;
 
     @Column(name = "postal_code")
     private String postalCode;
@@ -44,7 +49,7 @@ public class RestaurantEntity {
     private final ZonedDateTime createdAt = ZonedDateTime.now();
 
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private ZonedDateTime modifiedAt = ZonedDateTime.now();
 
     @Column(name = "active")
     private boolean active;
