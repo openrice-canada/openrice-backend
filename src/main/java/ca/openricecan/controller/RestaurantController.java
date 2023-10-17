@@ -1,11 +1,11 @@
 package ca.openricecan.controller;
 
-import ca.openricecan.data.dto.user.LoginRequest;
 import ca.openricecan.data.entity.restaurant.RestaurantEntity;
 import ca.openricecan.service.restaurant.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.RepositoryType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "restaurant")
