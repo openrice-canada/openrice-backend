@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/restaurant/dish")
+@RequestMapping(path = "api/restaurant")
 public class RestaurantDishController {
     private final RestaurantDishService restaurantDishService;
 
@@ -17,7 +17,7 @@ public class RestaurantDishController {
         this.restaurantDishService = restaurantDishService;
     }
 
-    @GetMapping
+    @GetMapping(path = "dish")
     public Iterable<RestaurantDishEntity> getRestaurantDishList() {
         return restaurantDishService.getAllRestaurantDishes();
     }
