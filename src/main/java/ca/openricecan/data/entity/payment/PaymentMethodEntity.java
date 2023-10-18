@@ -3,7 +3,6 @@ package ca.openricecan.data.entity.payment;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -11,11 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "paymentMethod")
+@Table(name = "payment_method", schema = "public")
 public class PaymentMethodEntity {
     @Id
-    @SequenceGenerator(name = "payment_method_sequence", sequenceName = "payment_method_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_method_sequence")
+    @GeneratedValue
     @Column(name = "payment_method_id", updatable = false, nullable = false)
     private UUID paymentMethodId;
 
