@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "photo")
+@RequestMapping(path = "api/photo")
 public class PhotoController {
   private final PhotoService photoService;
 
