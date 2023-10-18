@@ -15,8 +15,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Table(name = "restaurant")
 public class RestaurantEntity {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue
     private UUID restaurantId;
 
     @Column(name = "name")
