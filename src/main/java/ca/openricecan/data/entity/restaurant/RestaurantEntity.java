@@ -3,18 +3,18 @@ package ca.openricecan.data.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.geo.Point;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "restaurant", schema = "public")
+@Table(name = "restaurant")
 public class RestaurantEntity {
     @Id
-    @GeneratedValue
     @Column(name = "restaurant_id", updatable = false, nullable = false)
     private UUID restaurantId;
 
@@ -48,9 +48,8 @@ public class RestaurantEntity {
     @Column(name = "created_at", updatable = false)
     private final ZonedDateTime createdAt = ZonedDateTime.now();
 
-    @LastModifiedDate
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private ZonedDateTime modifiedAt = ZonedDateTime.now();
 
     @Column(name = "active")
     private boolean active;
