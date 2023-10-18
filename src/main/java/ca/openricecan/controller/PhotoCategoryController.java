@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "photo-category")
+@RequestMapping(path = "api/photo-category")
 public class PhotoCategoryController {
   private final PhotoCategoryService photoCategoryService;
 

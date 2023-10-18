@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.restaurant;
+package ca.openricecan.data.entity.subscribe;
 
 import jakarta.persistence.*;
 import lombok.Getter;

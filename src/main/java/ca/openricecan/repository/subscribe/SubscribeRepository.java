@@ -1,6 +1,6 @@
-package ca.openricecan.repository.restaurant;
+package ca.openricecan.repository.subscribe;
 
-import ca.openricecan.data.entity.restaurant.SubscribeEntity;
+import ca.openricecan.data.entity.subscribe.SubscribeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
