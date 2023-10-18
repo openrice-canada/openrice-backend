@@ -24,5 +24,5 @@ public class RestaurantPaymentEntity {
     private UUID paymentMethodId;
 
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private final ZonedDateTime createdAt = ZonedDateTime.now();
 }

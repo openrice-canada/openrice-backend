@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.restaurant;
+package ca.openricecan.data.entity.subscribe;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -24,5 +24,5 @@ public class SubscribeEntity {
     private UUID restaurantId;
 
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private final ZonedDateTime createdAt = ZonedDateTime.now();
 }

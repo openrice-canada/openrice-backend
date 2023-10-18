@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "restaurant-payment")
+@RequestMapping(path = "api/restaurant")
 public class RestaurantPaymentController {
     private final RestaurantPaymentService restaurantPaymentService;
 
@@ -17,7 +17,7 @@ public class RestaurantPaymentController {
         this.restaurantPaymentService = restaurantPaymentService;
     }
 
-    @GetMapping
+    @GetMapping(path = "payment")
     public Iterable<RestaurantPaymentEntity> getRestaurantPaymentList() {
         return restaurantPaymentService.getAllRestaurantPayments();
     }
