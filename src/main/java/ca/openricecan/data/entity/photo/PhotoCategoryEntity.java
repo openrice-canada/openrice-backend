@@ -10,8 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
+@Table(name = "photo_category", schema = "public")
 public class PhotoCategoryEntity {
   @Id
+  @GeneratedValue
   @Column(name = "photo_category_id", updatable = false, nullable = false)
   private UUID photoCategoryId;
 

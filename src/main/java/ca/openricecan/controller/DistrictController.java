@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "district")
+@RequestMapping(path = "api/district")
 public class DistrictController {
   private final DistrictService districtService;
 

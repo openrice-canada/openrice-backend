@@ -10,9 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "district")
+@Table(name = "district", schema = "public")
 public class DistrictEntity {
     @Id
+    @GeneratedValue
     @Column(name = "district_id", updatable = false, nullable = false)
     private UUID districtId;
 

@@ -3,16 +3,18 @@ package ca.openricecan.data.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.ZonedDateTime;
 import java.util.UUID;
+
+import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "restaurant")
+@Table(name = "restaurant", schema = "public")
 public class RestaurantEntity {
     @Id
+    @GeneratedValue
     @Column(name = "restaurant_id", updatable = false, nullable = false)
     private UUID restaurantId;
 
@@ -25,8 +27,11 @@ public class RestaurantEntity {
     @Column(name = "district_id")
     private UUID districtId;
 
-    @Column(name = "coordinate")
-    private String coordinate;
+    @Column(name = "latitude")
+    private Float latitude;
+
+    @Column(name = "longitude")
+    private Float longitude;
 
     @Column(name = "postal_code")
     private String postalCode;
@@ -43,6 +48,7 @@ public class RestaurantEntity {
     @Column(name = "created_at", updatable = false)
     private final ZonedDateTime createdAt = ZonedDateTime.now();
 
+    @LastModifiedDate
     @Column(name = "modified_at")
     private ZonedDateTime modifiedAt;
 

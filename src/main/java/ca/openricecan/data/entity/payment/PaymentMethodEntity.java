@@ -3,7 +3,6 @@ package ca.openricecan.data.entity.payment;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -11,9 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "paymentMethod")
+@Table(name = "payment_method", schema = "public")
 public class PaymentMethodEntity {
     @Id
+    @GeneratedValue
     @Column(name = "payment_method_id", updatable = false, nullable = false)
     private UUID paymentMethodId;
 
