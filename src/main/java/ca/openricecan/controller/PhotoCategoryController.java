@@ -1,4 +1,4 @@
-package ca.openricecan.controller.photo;
+package ca.openricecan.controller;
 
 import ca.openricecan.data.entity.photo.PhotoCategoryEntity;
 import ca.openricecan.service.photo.PhotoCategoryService;
