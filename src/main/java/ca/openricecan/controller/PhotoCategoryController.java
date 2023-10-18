@@ -1,4 +1,4 @@
-package ca.openricecan.controller.photo;
+package ca.openricecan.controller;
 
 import ca.openricecan.data.entity.photo.PhotoCategoryEntity;
 import ca.openricecan.service.photo.PhotoCategoryService;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "photo_category")
+@RequestMapping(path = "api/photo-category")
 public class PhotoCategoryController {
   private final PhotoCategoryService photoCategoryService;
 

@@ -10,11 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "district")
+@Table(name = "district", schema = "public")
 public class DistrictEntity {
     @Id
-    @SequenceGenerator(name = "district_sequence", sequenceName = "district_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "district_sequence")
+    @GeneratedValue
     @Column(name = "district_id", updatable = false, nullable = false)
     private UUID districtId;
 
