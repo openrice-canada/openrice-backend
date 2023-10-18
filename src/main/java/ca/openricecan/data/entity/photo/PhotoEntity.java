@@ -10,10 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
+@Table(name = "photo", schema = "public")
 public class PhotoEntity {
   @Id
-  @SequenceGenerator(name = "restaurant_sequence", sequenceName = "restaurant_sequence", allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "restaurant_sequence")
+  @GeneratedValue
   @Column(name = "photo_id", updatable = false, nullable = false)
   private UUID photoId;
 

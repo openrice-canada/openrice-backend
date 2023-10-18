@@ -3,7 +3,6 @@ package ca.openricecan.data.entity.dish;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -11,11 +10,10 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "dish")
+@Table(name = "dish", schema = "public")
 public class DishEntity {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue
     @Column(name = "dish_id", updatable = false, nullable = false)
     private UUID dishId;
 

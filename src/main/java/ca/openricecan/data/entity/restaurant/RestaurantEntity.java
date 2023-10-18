@@ -3,7 +3,6 @@ package ca.openricecan.data.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
@@ -12,10 +11,11 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Entity
 @Getter
 @Setter
-@Table(name = "restaurant")
+@Table(name = "restaurant", schema = "public")
 public class RestaurantEntity {
     @Id
     @GeneratedValue
+    @Column(name = "restaurant_id", updatable = false, nullable = false)
     private UUID restaurantId;
 
     @Column(name = "name")
