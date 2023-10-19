@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.photo;
+package ca.openricecan.model.entity.photo;
 
 import jakarta.persistence.*;
 import lombok.Getter;

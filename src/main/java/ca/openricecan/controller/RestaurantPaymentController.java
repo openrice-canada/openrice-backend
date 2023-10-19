@@ -1,6 +1,6 @@
 package ca.openricecan.controller;
 
-import ca.openricecan.data.entity.restaurant.RestaurantPaymentEntity;
+import ca.openricecan.model.entity.restaurant.RestaurantPaymentEntity;
 import ca.openricecan.service.restaurant.RestaurantPaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "restaurant-payment")
+@RequestMapping(path = "restaurant/payment")
 public class RestaurantPaymentController {
     private final RestaurantPaymentService restaurantPaymentService;
 

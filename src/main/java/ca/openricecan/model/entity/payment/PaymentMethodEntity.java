@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.payment;
+package ca.openricecan.model.entity.payment;
 
 import jakarta.persistence.*;
 import lombok.Getter;

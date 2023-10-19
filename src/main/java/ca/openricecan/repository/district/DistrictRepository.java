@@ -1,6 +1,6 @@
 package ca.openricecan.repository.district;
 
-import ca.openricecan.data.entity.district.DistrictEntity;
+import ca.openricecan.model.entity.district.DistrictEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

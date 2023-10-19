@@ -1,6 +1,6 @@
 package ca.openricecan.service.payment;
 
-import ca.openricecan.data.entity.payment.PaymentMethodEntity;
+import ca.openricecan.model.entity.payment.PaymentMethodEntity;
 import ca.openricecan.repository.payment.PaymentMethodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

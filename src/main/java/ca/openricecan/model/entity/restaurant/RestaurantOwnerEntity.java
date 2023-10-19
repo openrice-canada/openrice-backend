@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.subscribe;
+package ca.openricecan.model.entity.restaurant;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,12 +10,12 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "subscribe", schema = "public")
-public class SubscribeEntity {
+@Table(name = "restaurant_owner", schema = "public")
+public class RestaurantOwnerEntity {
     @Id
     @GeneratedValue
-    @Column(name = "subscribe_id", updatable = false, nullable = false)
-    private UUID subscribeId;
+    @Column(name = "owner_id", updatable = false, nullable = false)
+    private UUID ownerId;
 
     @Column(name = "user_id")
     private UUID userId;
