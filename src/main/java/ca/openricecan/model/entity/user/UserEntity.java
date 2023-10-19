@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.user;
+package ca.openricecan.model.entity.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;

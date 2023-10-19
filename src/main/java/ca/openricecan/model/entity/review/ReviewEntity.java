@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.review;
+package ca.openricecan.model.entity.review;
 
 import jakarta.persistence.*;
 import lombok.Getter;

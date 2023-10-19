@@ -1,12 +1,12 @@
 package ca.openricecan.controller;
 
-import ca.openricecan.data.entity.dish.DishEntity;
+import ca.openricecan.model.entity.dish.DishEntity;
 import ca.openricecan.service.dish.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/dish")
+@RequestMapping(path = "dish")
 public class DishController {
     private final DishService dishService;
 

@@ -1,6 +1,6 @@
 package ca.openricecan.service.review;
 
-import ca.openricecan.data.entity.review.ReviewEntity;
+import ca.openricecan.model.entity.review.ReviewEntity;
 import ca.openricecan.repository.review.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

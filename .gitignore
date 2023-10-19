@@ -3,6 +3,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+.env
 
 ### IntelliJ IDEA ###
 .idea
@@ -16,6 +17,14 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+templates/
+static/
+!**/src/main/resources/templates
+!**/src/main/resources/static
+index.html
+index.css
+favicon.ico
+ClientController.java
 
 ### Eclipse ###
 .apt_generated
@@ -36,8 +45,10 @@ bin/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
-
 ### Mac OS ###
 .DS_Store
+
+docker-compose.yml
+.dockerignore
+.hintrc
+.npmrc
