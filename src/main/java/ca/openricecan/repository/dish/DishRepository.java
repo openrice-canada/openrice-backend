@@ -1,6 +1,6 @@
 package ca.openricecan.repository.dish;
 
-import ca.openricecan.data.entity.dish.DishEntity;
+import ca.openricecan.model.entity.dish.DishEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

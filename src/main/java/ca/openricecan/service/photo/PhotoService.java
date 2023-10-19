@@ -1,6 +1,6 @@
 package ca.openricecan.service.photo;
 
-import ca.openricecan.data.entity.photo.PhotoEntity;
+import ca.openricecan.model.entity.photo.PhotoEntity;
 import ca.openricecan.repository.photo.PhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package ca.openricecan.repository.review;
 
-import ca.openricecan.data.entity.review.ReviewEntity;
+import ca.openricecan.model.entity.review.ReviewEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

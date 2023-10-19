@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.dish;
+package ca.openricecan.model.entity.dish;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package ca.openricecan.service.district;
 
-import ca.openricecan.data.entity.district.DistrictEntity;
+import ca.openricecan.model.entity.district.DistrictEntity;
 import ca.openricecan.repository.district.DistrictRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
