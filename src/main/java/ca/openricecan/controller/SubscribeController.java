@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/subscribe")
+@RequestMapping(path = "subscribe")
 public class SubscribeController {
     private final SubscribeService subscribeService;
 
