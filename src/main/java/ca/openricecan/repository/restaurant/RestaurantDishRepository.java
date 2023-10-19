@@ -1,6 +1,6 @@
 package ca.openricecan.repository.restaurant;
 
-import ca.openricecan.data.entity.restaurant.RestaurantDishEntity;
+import ca.openricecan.model.entity.restaurant.RestaurantDishEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

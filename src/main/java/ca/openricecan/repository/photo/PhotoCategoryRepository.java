@@ -1,6 +1,6 @@
 package ca.openricecan.repository.photo;
 
-import ca.openricecan.data.entity.photo.PhotoCategoryEntity;
+import ca.openricecan.model.entity.photo.PhotoCategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

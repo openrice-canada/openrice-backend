@@ -1,6 +1,6 @@
 package ca.openricecan.controller;
 
-import ca.openricecan.data.entity.subscribe.SubscribeEntity;
+import ca.openricecan.model.entity.subscribe.SubscribeEntity;
 import ca.openricecan.service.subscribe.SubscribeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

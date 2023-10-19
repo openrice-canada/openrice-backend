@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.restaurant;
+package ca.openricecan.model.entity.restaurant;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,18 +10,18 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@Table(name = "restaurant_payment", schema = "public")
-public class RestaurantPaymentEntity {
+@Table(name = "restaurant_dish", schema = "public")
+public class RestaurantDishEntity {
     @Id
     @GeneratedValue
-    @Column(name = "restaurant_payment_id", updatable = false, nullable = false)
-    private UUID restaurantPaymentId;
+    @Column(name = "restaurant_dish_id", updatable = false, nullable = false)
+    private UUID restaurantDishId;
 
     @Column(name = "restaurant_id")
     private UUID restaurantId;
 
-    @Column(name = "payment_method_id")
-    private UUID paymentMethodId;
+    @Column(name = "dish_id")
+    private UUID dishId;
 
     @Column(name = "created_at", updatable = false)
     private final ZonedDateTime createdAt = ZonedDateTime.now();

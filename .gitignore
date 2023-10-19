@@ -16,6 +16,8 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+!**/src/main/resources/templates/*
+!**/src/main/resources/static/*
 
 ### Eclipse ###
 .apt_generated
@@ -36,8 +38,9 @@ bin/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
-
 ### Mac OS ###
 .DS_Store
+
+docker-compose.yml
+.dockerignore
+.hintrc

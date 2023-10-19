@@ -1,6 +1,6 @@
 package ca.openricecan.repository.payment;
 
-import ca.openricecan.data.entity.payment.PaymentMethodEntity;
+import ca.openricecan.model.entity.payment.PaymentMethodEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

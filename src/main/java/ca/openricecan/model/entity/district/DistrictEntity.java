@@ -1,4 +1,4 @@
-package ca.openricecan.data.entity.district;
+package ca.openricecan.model.entity.district;
 
 import jakarta.persistence.*;
 import lombok.Getter;

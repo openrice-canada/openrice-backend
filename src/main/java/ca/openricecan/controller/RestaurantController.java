@@ -1,6 +1,6 @@
 package ca.openricecan.controller;
 
-import ca.openricecan.data.entity.restaurant.RestaurantEntity;
+import ca.openricecan.model.entity.restaurant.RestaurantEntity;
 import ca.openricecan.service.restaurant.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
