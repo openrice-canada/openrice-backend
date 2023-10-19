@@ -20,6 +20,9 @@ templates/
 static/
 !**/src/main/resources/templates
 !**/src/main/resources/static
+index.html
+index.css
+favicon.ico
 ClientController.java
 
 ### Eclipse ###
@@ -47,3 +50,4 @@ bin/
 docker-compose.yml
 .dockerignore
 .hintrc
+.npmrc
