@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/restaurant")
+@RequestMapping(path = "restaurant-owner")
 public class RestaurantOwnerController {
     private final RestaurantOwnerService restaurantOwnerService;
 
@@ -15,7 +15,7 @@ public class RestaurantOwnerController {
         this.restaurantOwnerService = restaurantOwnerService;
     }
 
-    @GetMapping(path = "owner")
+    @GetMapping
     public Iterable<RestaurantOwnerEntity> getOwnerList() {
         return restaurantOwnerService.getAllRestaurantOwners();
     }
