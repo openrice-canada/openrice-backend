@@ -16,8 +16,11 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-!**/src/main/resources/templates/*
-!**/src/main/resources/static/*
+templates/
+static/
+!**/src/main/resources/templates
+!**/src/main/resources/static
+ClientController.java
 
 ### Eclipse ###
 .apt_generated
