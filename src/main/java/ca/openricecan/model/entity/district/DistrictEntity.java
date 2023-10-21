@@ -12,14 +12,14 @@ import java.util.UUID;
 @Setter
 @Table(name = "district", schema = "public")
 public class DistrictEntity {
-    @Id
-    @GeneratedValue
-    @Column(name = "district_id", updatable = false, nullable = false)
-    private UUID districtId;
+  @Id
+  @GeneratedValue
+  @Column(name = "district_id", updatable = false, nullable = false)
+  private UUID districtId;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @Column(name = "created_at", updatable = false)
-    private final ZonedDateTime createdAt = ZonedDateTime.now();
+  @Column(name = "created_at", updatable = false)
+  private final ZonedDateTime createdAt = ZonedDateTime.now();
 }
