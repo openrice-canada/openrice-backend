@@ -10,25 +10,33 @@ import java.util.UUID;
 @RestController
 @RequestMapping(path = "restaurant")
 public class RestaurantController {
-    private final RestaurantService restaurantService;
+  private final RestaurantService restaurantService;
 
-    @Autowired
-    public RestaurantController(RestaurantService restaurantService) {
-        this.restaurantService = restaurantService;
-    }
+  @Autowired
+  public RestaurantController(RestaurantService restaurantService) {
+    this.restaurantService = restaurantService;
+  }
 
-    @GetMapping
-    public Iterable<RestaurantEntity> getRestaurantList() {
-        return restaurantService.getAllRestaurants();
-    }
+  @GetMapping
+  public Iterable<RestaurantEntity> getRestaurantList() {
+    return restaurantService.getAllRestaurants();
+  }
 
-    @GetMapping(path = "{id}")
-    public RestaurantEntity getRestaurantById(@PathVariable UUID id) {
-        return restaurantService.getRestaurantById(id);
-    }
+  @GetMapping(path = "{id}")
+  public RestaurantEntity getRestaurantById(@PathVariable UUID id) {
+    return restaurantService.getRestaurantById(id);
+  }
 
-    @PostMapping
-    public RestaurantEntity addRestaurant(@RequestBody RestaurantEntity restaurantEntity) {
-        return restaurantService.addRestaurant(restaurantEntity);
-    }
+//  @PostMapping
+//  public RestaurantEntity addRestaurant(@RequestBody RestaurantDTO restaurantDTO, @RequestBody MultipartFile file) throws IOException, SQLException {
+//    file.transferTo(new File(`${file.fieldname}-${Date.now()}.${file.mimetype.split('/')[1]}`));
+//    byte[] bytes = file.getBytes();file
+//    Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
+//
+//    Image image = new Image();
+//    image.setImage(blob);
+//    file.transferTo(new File("/path/to/save/file"));
+//    restaurantEntity.push();
+//    return restaurantService.addRestaurant(restaurantEntity);
+//  }
 }
