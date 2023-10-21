@@ -10,22 +10,22 @@ import java.util.UUID;
 @RestController
 @RequestMapping(path = "restaurant")
 public class RestaurantController {
-  private final RestaurantService restaurantService;
+    private final RestaurantService restaurantService;
 
-  @Autowired
-  public RestaurantController(RestaurantService restaurantService) {
-    this.restaurantService = restaurantService;
-  }
+    @Autowired
+    public RestaurantController(RestaurantService restaurantService) {
+        this.restaurantService = restaurantService;
+    }
 
-  @GetMapping
-  public Iterable<RestaurantEntity> getRestaurantList() {
-    return restaurantService.getAllRestaurants();
-  }
+    @GetMapping
+    public Iterable<RestaurantEntity> getRestaurantList() {
+        return restaurantService.getAllRestaurants();
+    }
 
-  @GetMapping(path = "{id}")
-  public RestaurantEntity getRestaurantById(@PathVariable UUID id) {
-    return restaurantService.getRestaurantById(id);
-  }
+    @GetMapping(path = "{id}")
+    public RestaurantEntity getRestaurantById(@PathVariable UUID id) {
+        return restaurantService.getRestaurantById(id);
+    }
 
 //  @PostMapping
 //  public RestaurantEntity addRestaurant(@RequestBody RestaurantDTO restaurantDTO, @RequestBody MultipartFile file) throws IOException, SQLException {
@@ -39,4 +39,19 @@ public class RestaurantController {
 //    restaurantEntity.push();
 //    return restaurantService.addRestaurant(restaurantEntity);
 //  }
+
+    @PostMapping
+    public RestaurantEntity addRestaurant(@RequestBody RestaurantEntity restaurantEntity) {
+        return restaurantService.addRestaurant(restaurantEntity);
+    }
+
+    @PutMapping(path = "{id}")
+    public RestaurantEntity editRestaurant(@PathVariable UUID id, @RequestBody RestaurantEntity restaurantEntity) {
+        return restaurantService.editRestaurant(id, restaurantEntity);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public RestaurantEntity deleteRestaurant(@PathVariable UUID id) {
+        return restaurantService.deleteRestaurant(id);
+    }
 }
