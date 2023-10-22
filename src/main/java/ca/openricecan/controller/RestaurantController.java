@@ -27,6 +27,10 @@ public class RestaurantController {
         return restaurantService.getRestaurantById(id);
     }
 
+  @PostMapping
+  public RestaurantEntity addRestaurant(@RequestBody RestaurantEntity restaurantEntity) {
+    return restaurantService.addRestaurant(restaurantEntity);
+  }
 //  @PostMapping
 //  public RestaurantEntity addRestaurant(@RequestBody RestaurantDTO restaurantDTO, @RequestBody MultipartFile file) throws IOException, SQLException {
 //    file.transferTo(new File(`${file.fieldname}-${Date.now()}.${file.mimetype.split('/')[1]}`));
