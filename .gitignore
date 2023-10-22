@@ -22,6 +22,7 @@ out/
 **/src/main/**/imagecontroller/
 ClientController.java
 RestaurantImageController.java
+**/src/main/**/service/restaurantimage/
 RestaurantImageService.java
 RestaurantImageRepository.java
 **/src/main/**/model/dto/restaurant/
