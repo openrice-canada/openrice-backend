@@ -13,48 +13,60 @@ import java.util.UUID;
 @Setter
 @Table(name = "restaurant", schema = "public")
 public class RestaurantEntity {
-  @Id
-  @GeneratedValue
-  @Column(name = "restaurant_id", updatable = false, nullable = false)
-  private UUID restaurantId;
+    @Id
+    @GeneratedValue
+    @Column(name = "restaurant_id", updatable = false, nullable = false)
+    private UUID restaurantId;
 
-  @Column(name = "name")
-  private String name;
+    @Column(name = "name")
+    private String name;
 
-  @Column(name = "address")
-  private String address;
+    @Column(name = "address")
+    private String address;
 
-  @Column(name = "district_id")
-  private UUID districtId;
+    @Column(name = "district_id")
+    private UUID districtId;
 
-  @Column(name = "latitude")
-  private Float latitude;
+    @Column(name = "latitude")
+    private Float latitude;
 
-  @Column(name = "longitude")
-  private Float longitude;
+    @Column(name = "longitude")
+    private Float longitude;
 
-  @Column(name = "postal_code")
-  private String postalCode;
+    @Column(name = "postal_code")
+    private String postalCode;
 
-  @Column(name = "phone")
-  private String phone;
+    @Column(name = "phone")
+    private String phone;
 
-  @Column(name = "intro")
-  private String intro;
+    @Column(name = "intro")
+    private String intro;
 
-  @Column(name = "opening_hours")
-  private String openingHours;
+    @Column(name = "opening_hours")
+    private String openingHours;
 
-  @Column(name = "created_at", updatable = false)
-  private final ZonedDateTime createdAt = ZonedDateTime.now();
+    @Column(name = "created_at", updatable = false)
+    private ZonedDateTime createdAt = ZonedDateTime.now();
 
-  @LastModifiedDate
-  @Column(name = "modified_at")
-  private ZonedDateTime modifiedAt;
+    @LastModifiedDate
+    @Column(name = "modified_at")
+    private ZonedDateTime modifiedAt;
 
-  @Column(name = "active")
-  private boolean active;
+    @Column(name = "active")
+    private boolean active;
+//
+//    @Column(name = "photo")
+//    private String photo;
 
-  @Column(name = "photo")
-  private String photo;
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+        this.setModifiedAt(ZonedDateTime.now());
+    }
+
+    @PreUpdate
+    void onPreUpdate() {
+        this.setModifiedAt(ZonedDateTime.now());
+    }
 }

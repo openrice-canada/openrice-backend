@@ -5,6 +5,8 @@ import ca.openricecan.service.review.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping(path = "review")
 public class ReviewController {
@@ -18,5 +20,25 @@ public class ReviewController {
     @GetMapping
     public Iterable<ReviewEntity> gerReviewList() {
         return reviewService.getAllReviews();
+    }
+
+    @GetMapping(path = "{id}")
+    public ReviewEntity getReviewById(@PathVariable UUID id) {
+        return reviewService.getReviewById(id);
+    }
+
+    @PostMapping
+    public ReviewEntity addReview(@RequestBody ReviewEntity reviewEntity) {
+        return reviewService.addReview(reviewEntity);
+    }
+
+    @PutMapping(path = "{id}")
+    public ReviewEntity editReview(@PathVariable UUID id, @RequestBody ReviewEntity reviewEntity) {
+        return reviewService.editReview(id, reviewEntity);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public ReviewEntity deleteReview(@PathVariable UUID id) {
+        return reviewService.deleteReview(id);
     }
 }

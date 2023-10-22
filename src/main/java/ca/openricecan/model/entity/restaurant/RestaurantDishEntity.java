@@ -12,17 +12,26 @@ import java.util.UUID;
 @Setter
 @Table(name = "restaurant_dish", schema = "public")
 public class RestaurantDishEntity {
-  @Id
-  @GeneratedValue
-  @Column(name = "restaurant_dish_id", updatable = false, nullable = false)
-  private UUID restaurantDishId;
+    @Id
+    @GeneratedValue
+    @Column(name = "restaurant_dish_id", updatable = false, nullable = false)
+    private UUID restaurantDishId;
 
-  @Column(name = "restaurant_id")
-  private UUID restaurantId;
+    @Column(name = "restaurant_id")
+    private UUID restaurantId;
 
-  @Column(name = "dish_id")
-  private UUID dishId;
+    @Column(name = "dish_id")
+    private UUID dishId;
 
-  @Column(name = "created_at", updatable = false)
-  private final ZonedDateTime createdAt = ZonedDateTime.now();
+    @Column(name = "created_at", updatable = false)
+    private ZonedDateTime createdAt;
+
+    @Column(name = "active")
+    private Boolean active;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+    }
 }
