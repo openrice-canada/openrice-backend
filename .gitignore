@@ -19,11 +19,13 @@ out/
 !**/src/test/**/out/
 **/src/main/**/templates/
 **/src/main/**/static/
+**/src/main/**/imagecontroller/
 ClientController.java
 RestaurantImageController.java
 RestaurantImageService.java
 RestaurantImageRepository.java
-**/src/main/**/model/**/restaurant/
+**/src/main/**/model/dto/restaurant/
+**/src/main/**/model/entity/restaurantimage/
 
 ### Eclipse ###
 .apt_generated
