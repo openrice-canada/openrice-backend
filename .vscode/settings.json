@@ -3,12 +3,14 @@
     "classpath",
     "factorypath",
     "hintrc",
+    "imagecontroller",
     "Intelli",
     "nbbuild",
     "nbdist",
     "nbproject",
     "openrican",
     "Openrice",
-    "openricecan"
+    "openricecan",
+    "restaurantimage"
   ]
 }
