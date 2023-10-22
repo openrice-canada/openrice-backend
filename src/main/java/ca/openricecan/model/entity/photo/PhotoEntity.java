@@ -12,20 +12,29 @@ import java.util.UUID;
 @Setter
 @Table(name = "photo", schema = "public")
 public class PhotoEntity {
-  @Id
-  @GeneratedValue
-  @Column(name = "photo_id", updatable = false, nullable = false)
-  private UUID photoId;
+    @Id
+    @GeneratedValue
+    @Column(name = "photo_id", updatable = false, nullable = false)
+    private UUID photoId;
 
-  @Column(name = "review_id")
-  private UUID reviewId;
+    @Column(name = "review_id")
+    private UUID reviewId;
 
-  @Column(name = "photo_category_id")
-  private UUID photoCategoryId;
+    @Column(name = "photo_category_id")
+    private UUID photoCategoryId;
 
-  @Column(name = "photo_address")
-  private String photoAddress;
+    @Column(name = "photo_address")
+    private String photoAddress;
 
-  @Column(name = "created_at", updatable = false)
-  private final ZonedDateTime createdAt = ZonedDateTime.now();
+    @Column(name = "created_at", updatable = false)
+    private ZonedDateTime createdAt;
+
+    @Column(name = "active")
+    private Boolean active;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+    }
 }

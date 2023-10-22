@@ -12,17 +12,26 @@ import java.util.UUID;
 @Setter
 @Table(name = "subscribe", schema = "public")
 public class SubscribeEntity {
-  @Id
-  @GeneratedValue
-  @Column(name = "subscribe_id", updatable = false, nullable = false)
-  private UUID subscribeId;
+    @Id
+    @GeneratedValue
+    @Column(name = "subscribe_id", updatable = false, nullable = false)
+    private UUID subscribeId;
 
-  @Column(name = "user_id")
-  private UUID userId;
+    @Column(name = "user_id")
+    private UUID userId;
 
-  @Column(name = "restaurant_id")
-  private UUID restaurantId;
+    @Column(name = "restaurant_id")
+    private UUID restaurantId;
 
-  @Column(name = "created_at", updatable = false)
-  private final ZonedDateTime createdAt = ZonedDateTime.now();
+    @Column(name = "created_at", updatable = false)
+    private ZonedDateTime createdAt;
+
+    @Column(name = "active")
+    private Boolean active;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+    }
 }

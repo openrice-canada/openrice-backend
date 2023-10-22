@@ -12,22 +12,23 @@ import java.util.UUID;
 @Setter
 @Table(name = "district", schema = "public")
 public class DistrictEntity {
-  @Id
-  @GeneratedValue
-  @Column(name = "district_id", updatable = false, nullable = false)
-  private UUID districtId;
+    @Id
+    @GeneratedValue
+    @Column(name = "district_id", updatable = false, nullable = false)
+    private UUID districtId;
 
-  @Column(name = "name")
-  private String name;
+    @Column(name = "name")
+    private String name;
 
-  @Column(name = "created_at", updatable = false)
-  private ZonedDateTime createdAt;
+    @Column(name = "created_at", updatable = false)
+    private ZonedDateTime createdAt;
 
-  @Column(name = "active")
-  private Boolean active;
+    @Column(name = "active")
+    private Boolean active;
 
-  @PrePersist void onPrePersist(){
-    this.setActive(true);
-    this.setCreatedAt(ZonedDateTime.now());
-  }
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+    }
 }

@@ -59,14 +59,14 @@ public class RestaurantEntity {
 //    private String photo;
 
     @PrePersist
-    public void onPrePersist() {
+    void onPrePersist() {
         this.setActive(true);
         this.setCreatedAt(ZonedDateTime.now());
         this.setModifiedAt(ZonedDateTime.now());
     }
 
     @PreUpdate
-    public void onPreUpdate() {
+    void onPreUpdate() {
         this.setModifiedAt(ZonedDateTime.now());
     }
 }
