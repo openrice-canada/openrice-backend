@@ -3,7 +3,6 @@ package ca.openricecan.model.entity.user;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -28,12 +27,23 @@ public class UserEntity {
     private String password;
 
     @Column(name = "created_at", updatable = false)
-    private final ZonedDateTime createdAt = ZonedDateTime.now();
+    private ZonedDateTime createdAt;
 
-    @LastModifiedDate
     @Column(name = "modified_at")
     private ZonedDateTime modifiedAt;
 
     @Column(name = "active")
     private boolean active;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+        this.setModifiedAt(ZonedDateTime.now());
+    }
+
+    @PreUpdate
+    void onPreUpdate() {
+        this.setModifiedAt(ZonedDateTime.now());
+    }
 }

@@ -46,7 +46,7 @@ public class RestaurantEntity {
     private String openingHours;
 
     @Column(name = "created_at", updatable = false)
-    private final ZonedDateTime createdAt = ZonedDateTime.now();
+    private ZonedDateTime createdAt = ZonedDateTime.now();
 
     @LastModifiedDate
     @Column(name = "modified_at")
@@ -54,4 +54,19 @@ public class RestaurantEntity {
 
     @Column(name = "active")
     private boolean active;
+//
+//    @Column(name = "photo")
+//    private String photo;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+        this.setModifiedAt(ZonedDateTime.now());
+    }
+
+    @PreUpdate
+    void onPreUpdate() {
+        this.setModifiedAt(ZonedDateTime.now());
+    }
 }
