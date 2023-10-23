@@ -2,6 +2,7 @@ package ca.openricecan.config;
 
 import ca.openricecan.model.entity.user.Role;
 import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,10 +25,10 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 @EnableMethodSecurity
 public class SecurityConfiguration {
     private static final String[] WHITE_LIST_URL = {
-            "/api/**",
-            "/api/restaurant/**",
-            "/api/review/**",
-            "/api/photo/**",
+            "/api/v1/auth/**",
+            "/api/v1/restaurant/**",
+            "/api/v1/review/**",
+            "/api/v1/photo/**",
     };
 
     private final JwtAuthenticationFilter jwtAuthFilter;
@@ -45,7 +46,7 @@ public class SecurityConfiguration {
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class) ;
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "restaurant/owner")
+@RequestMapping(path = "/api/v1/restaurant/owner")
 public class RestaurantOwnerController {
     private final RestaurantOwnerService restaurantOwnerService;
 
