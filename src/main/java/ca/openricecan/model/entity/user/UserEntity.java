@@ -1,17 +1,28 @@
 package ca.openricecan.model.entity.user;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.ZonedDateTime;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Getter
-@Setter
 @Table(name = "user", schema = "public")
-public class UserEntity {
+@EntityListeners(AuditingEntityListener.class)
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue
     @Column(name = "user_id", updatable = false, nullable = false)
@@ -26,24 +37,53 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt;
+    private Date createdAt;
 
+    @LastModifiedDate
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private Date modifiedAt;
 
-    @Column(name = "active")
-    private boolean active;
+    @Column(name = "active", nullable = false)
+    private boolean active = true;
 
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-        this.setModifiedAt(ZonedDateTime.now());
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
-    @PreUpdate
-    void onPreUpdate() {
-        this.setModifiedAt(ZonedDateTime.now());
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
