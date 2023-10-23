@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "photo")
+@RequestMapping(path = "/api/v1/photo")
 public class PhotoController {
     private final PhotoService photoService;
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "subscribe")
+@RequestMapping(path = "/api/v1/subscribe")
 public class SubscribeController {
     private final SubscribeService subscribeService;
 

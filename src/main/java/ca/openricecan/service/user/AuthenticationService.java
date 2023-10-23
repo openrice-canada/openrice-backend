@@ -21,6 +21,9 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
+        userRepository.findByEmail(request.getEmail()).ifPresent(user -> {
+            throw new RuntimeException("Email already exists");
+        });
         var user = UserEntity.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())

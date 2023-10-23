@@ -4,6 +4,7 @@ import ca.openricecan.model.dto.user.AuthenticationRequest;
 import ca.openricecan.model.dto.user.AuthenticationResponse;
 import ca.openricecan.model.dto.user.RegisterRequest;
 import ca.openricecan.service.user.AuthenticationService;
+import ca.openricecan.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,17 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
+    private final UserService userService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
             ) {
-        System.out.println(request);
         return ResponseEntity.ok(authenticationService.register(request));
     }
 
