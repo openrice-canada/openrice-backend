@@ -17,14 +17,16 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-templates/
-static/
-!**/src/main/resources/templates
-!**/src/main/resources/static
-index.html
-index.css
-favicon.ico
+**/src/main/**/templates/
+**/src/main/**/static/
+**/src/main/**/imagecontroller/
 ClientController.java
+RestaurantImageController.java
+**/src/main/**/service/restaurantimage/
+RestaurantImageService.java
+RestaurantImageRepository.java
+**/src/main/**/model/dto/restaurant/
+**/src/main/**/model/entity/restaurantimage/
 
 ### Eclipse ###
 .apt_generated
@@ -52,3 +54,5 @@ docker-compose.yml
 .dockerignore
 .hintrc
 .npmrc
+.circleci/
+.gitlab-ci.yml

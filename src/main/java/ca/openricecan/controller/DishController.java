@@ -5,8 +5,10 @@ import ca.openricecan.service.dish.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
-@RequestMapping(path = "dish")
+@RequestMapping(path = "/api/v1/dish")
 public class DishController {
     private final DishService dishService;
 
@@ -20,8 +22,23 @@ public class DishController {
         return dishService.getAllDishes();
     }
 
+    @GetMapping(path = "{id}")
+    public DishEntity getDishById(@PathVariable UUID id) {
+        return dishService.getDishById(id);
+    }
+
     @PostMapping
-    public void createDish(@RequestBody DishEntity dishEntity) {
-        dishService.createDish(dishEntity);
+    public DishEntity addDish(@RequestBody DishEntity dishEntity) {
+        return dishService.addDish(dishEntity);
+    }
+
+    @PutMapping(path = "{id}")
+    public DishEntity editDish(@PathVariable UUID id, @RequestBody DishEntity dishEntity) {
+        return dishService.editDish(id, dishEntity);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public DishEntity deleteDish(@PathVariable UUID id) {
+        return dishService.deleteDish(id);
     }
 }

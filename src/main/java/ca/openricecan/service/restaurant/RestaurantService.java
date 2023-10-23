@@ -2,6 +2,7 @@ package ca.openricecan.service.restaurant;
 
 import ca.openricecan.model.entity.restaurant.RestaurantEntity;
 import ca.openricecan.repository.restaurant.RestaurantRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class RestaurantService {
 
     @Autowired
     public RestaurantService(RestaurantRepository restaurantRepository) {
-        this.restaurantRepository=restaurantRepository;
+        this.restaurantRepository = restaurantRepository;
     }
 
     public Iterable<RestaurantEntity> getAllRestaurants() {
@@ -26,5 +27,20 @@ public class RestaurantService {
 
     public RestaurantEntity addRestaurant(RestaurantEntity restaurantEntity) {
         return restaurantRepository.save(restaurantEntity);
+    }
+
+    public RestaurantEntity editRestaurant(UUID id, RestaurantEntity restaurantEntity) {
+        return restaurantRepository.findById(id).map(restaurant -> {
+            restaurant = restaurantEntity;
+            restaurant.setRestaurantId(id);
+            return restaurantRepository.save(restaurant);
+        }).orElse(null);
+    }
+
+    public RestaurantEntity deleteRestaurant(UUID id) {
+        return restaurantRepository.findById(id).map(restaurant -> {
+            restaurant.setActive(false);
+            return restaurantRepository.save(restaurant);
+        }).orElse(null);
     }
 }

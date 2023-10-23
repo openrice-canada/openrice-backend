@@ -24,5 +24,14 @@ public class RestaurantOwnerEntity {
     private UUID restaurantId;
 
     @Column(name = "created_at", updatable = false)
-    private final ZonedDateTime createdAt = ZonedDateTime.now();
+    private ZonedDateTime createdAt;
+
+    @Column(name = "active")
+    private Boolean active;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+    }
 }
