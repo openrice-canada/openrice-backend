@@ -8,6 +8,7 @@ import ca.openricecan.model.entity.user.UserEntity;
 import ca.openricecan.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,15 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        userRepository.findByEmail(request.getEmail()).ifPresent(user -> {
-            throw new RuntimeException("Email already exists");
-        });
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            return AuthenticationResponse.builder()
+                    .message("Email already exists")
+                    .build();
+        } else if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            return AuthenticationResponse.builder()
+                    .message("Username already exists")
+                    .build();
+        }
         var user = UserEntity.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
@@ -38,16 +45,29 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()
-                )
-        );
-        var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+        var user = userRepository.findByEmail(request.getEmailOrUsername())
+                .orElse(userRepository.findByUsername(request.getEmailOrUsername()).orElse(null));
+        if (user == null || !user.isAccountNonExpired()) {
+            return AuthenticationResponse.builder()
+                    .message("Sorry, we could not found your account")
+                    .build();
+        }
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getEmailOrUsername(),
+                            request.getPassword()
+                    )
+            );
+        } catch (BadCredentialsException badCredentialsException) {
+            return AuthenticationResponse.builder()
+                    .message("Password incorrect")
+                    .build();
+        }
+
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
-                .build() ;
+                .build();
     }
 }

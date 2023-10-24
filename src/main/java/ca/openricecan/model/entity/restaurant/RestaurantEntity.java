@@ -3,9 +3,10 @@ package ca.openricecan.model.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -45,28 +46,18 @@ public class RestaurantEntity {
     @Column(name = "opening_hours")
     private String openingHours;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private Date createdAt;
 
     @LastModifiedDate
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private Date modifiedAt;
 
     @Column(name = "active")
-    private boolean active;
+    private Boolean active = true;
 //
 //    @Column(name = "photo")
 //    private String photo;
 
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-        this.setModifiedAt(ZonedDateTime.now());
-    }
-
-    @PreUpdate
-    void onPreUpdate() {
-        this.setModifiedAt(ZonedDateTime.now());
-    }
 }
