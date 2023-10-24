@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "/api/v1/payment-method")
+@RequestMapping("api/v1/payment-method")
 public class PaymentMethodController {
-    private final PaymentMethodService paymentMethodService;
+  private final PaymentMethodService paymentMethodService;
 
-    @Autowired
-    public PaymentMethodController(PaymentMethodService paymentMethodService) {
-        this.paymentMethodService = paymentMethodService;
-    }
+  @Autowired
+  public PaymentMethodController(PaymentMethodService paymentMethodService) {
+    this.paymentMethodService = paymentMethodService;
+  }
 
-    @GetMapping
-    public Iterable<PaymentMethodEntity> getPaymentMethodList() {
-        return paymentMethodService.getAllPaymentMethods();
-    }
+  @GetMapping
+  public Iterable<PaymentMethodEntity> getPaymentMethodList() {
+    return paymentMethodService.getAllPaymentMethods();
+  }
 
-    @GetMapping(path = "{id}")
-    public PaymentMethodEntity getPaymentMethodById(@PathVariable UUID id) {
-        return paymentMethodService.getPaymentMethodById(id);
-    }
+  @GetMapping(path = "{id}")
+  public PaymentMethodEntity getPaymentMethodById(@PathVariable UUID id) {
+    return paymentMethodService.getPaymentMethodById(id);
+  }
 
-    @PostMapping
-    public PaymentMethodEntity addPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
-        return paymentMethodService.addPaymentMethod(paymentMethod);
-    }
+  @PostMapping
+  public PaymentMethodEntity addPaymentMethod(@RequestBody PaymentMethodEntity paymentMethod) {
+    return paymentMethodService.addPaymentMethod(paymentMethod);
+  }
 
-    @PutMapping(path = "{id}")
-    public PaymentMethodEntity editPaymentMethod(@PathVariable UUID id, @RequestBody PaymentMethodEntity paymentMethodEntity) {
-        return paymentMethodService.editPaymentMethod(id, paymentMethodEntity);
-    }
+  @PutMapping(path = "{id}")
+  public PaymentMethodEntity editPaymentMethod(@PathVariable UUID id, @RequestBody PaymentMethodEntity paymentMethodEntity) {
+    return paymentMethodService.editPaymentMethod(id, paymentMethodEntity);
+  }
 
-    @DeleteMapping(path = "{id}")
-    public PaymentMethodEntity deletePaymentMethod(@PathVariable UUID id) {
-        return paymentMethodService.deletePaymentMethod(id);
-    }
+  @DeleteMapping(path = "{id}")
+  public PaymentMethodEntity deletePaymentMethod(@PathVariable UUID id) {
+    return paymentMethodService.deletePaymentMethod(id);
+  }
 }
