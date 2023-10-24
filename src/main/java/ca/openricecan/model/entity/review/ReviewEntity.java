@@ -15,31 +15,31 @@ import java.util.UUID;
 @Setter
 @Table(name = "review", schema = "public")
 public class ReviewEntity {
-    @Id
-    @GeneratedValue
-    @Column(name = "review_id", updatable = false, nullable = false)
-    private UUID reviewId;
+  @Id
+  @GeneratedValue
+  @Column(name = "review_id", updatable = false, nullable = false)
+  private UUID reviewId;
 
-    @Column(name = "user_id", nullable = false)
-    private UUID userId;
+  @Column(name = "user_id", nullable = false)
+  private UUID userId;
 
-    @Column(name = "restaurant_id", nullable = false)
-    private UUID restaurantId;
+  @Column(name = "restaurant_id", nullable = false)
+  private UUID restaurantId;
 
-    @Column(name = "rating")
-    private Integer rating;
+  @Column(name = "rating")
+  private Integer rating;
 
-    @Column(name = "title")
-    private String title;
+  @Column(name = "title")
+  private String title;
 
-    @Column(name = "visit_date")
-    private ZonedDateTime visitDate;
+  @Column(name = "visit_date")
+  private ZonedDateTime visitDate;
 
-    @Column(name = "content")
-    private String content;
+  @Column(name = "content")
+  private String content;
 
-    @Column(name = "spending")
-    private Integer spending;
+  @Column(name = "spending")
+  private Integer spending;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)

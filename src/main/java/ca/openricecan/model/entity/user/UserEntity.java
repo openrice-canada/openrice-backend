@@ -22,44 +22,45 @@ import java.util.UUID;
 @Table(name = "user", schema = "public")
 @EntityListeners(AuditingEntityListener.class)
 public class UserEntity implements UserDetails {
-    @Id
-    @GeneratedValue
-    @Column(name = "user_id", updatable = false, nullable = false)
-    private UUID userId;
+  @Id
+  @GeneratedValue
+  @Column(name = "user_id", updatable = false, nullable = false)
+  private UUID userId;
 
-    @Column(name = "email")
-    private String email;
+  @Column(name = "email")
+  private String email;
 
-    @Column(name = "username")
-    private String username;
+  @Column(name = "username")
+  private String username;
 
-    @Column(name = "password")
-    private String password;
+  @Column(name = "password")
+  private String password;
 
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
-    private Date createdAt;
+  @CreatedDate
+  @Column(name = "created_at", updatable = false)
+  private Date createdAt;
 
-    @LastModifiedDate
-    @Column(name = "modified_at")
-    private Date modifiedAt;
+  @LastModifiedDate
+  @Column(name = "modified_at")
+  private Date modifiedAt;
 
-    @Column(name = "active", nullable = false)
-    private boolean active = true;
+  @Column(name = "active", nullable = false)
+  @Builder.Default
+  private boolean active = true;
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
+  @Column(name = "role")
+  @Enumerated(EnumType.STRING)
+  private Role role;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-    }
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return List.of(new SimpleGrantedAuthority(role.name()));
+  }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+  @Override
+  public String getPassword() {
+    return password;
+  }
 
     @Override
     public String getUsername() {
@@ -71,18 +72,18 @@ public class UserEntity implements UserDetails {
         return active;
     }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
 }
