@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "/api/v1/restaurant/owner")
+@RequestMapping("api/v1/restaurant/owner")
 public class RestaurantOwnerController {
-    private final RestaurantOwnerService restaurantOwnerService;
+  private final RestaurantOwnerService restaurantOwnerService;
 
-    @Autowired
-    public RestaurantOwnerController(RestaurantOwnerService restaurantOwnerService) {
-        this.restaurantOwnerService = restaurantOwnerService;
-    }
+  @Autowired
+  public RestaurantOwnerController(RestaurantOwnerService restaurantOwnerService) {
+    this.restaurantOwnerService = restaurantOwnerService;
+  }
 
-    @GetMapping
-    public Iterable<RestaurantOwnerEntity> getOwnerList() {
-        return restaurantOwnerService.getAllRestaurantOwners();
-    }
+  @GetMapping
+  public Iterable<RestaurantOwnerEntity> getOwnerList() {
+    return restaurantOwnerService.getAllRestaurantOwners();
+  }
 
-    @GetMapping(path = "{id}")
-    public RestaurantOwnerEntity getRestaurantOwnerById(@PathVariable UUID id){
-        return restaurantOwnerService.getRestaurantOwnerById(id);
-    }
+  @GetMapping(path = "{id}")
+  public RestaurantOwnerEntity getRestaurantOwnerById(@PathVariable UUID id) {
+    return restaurantOwnerService.getRestaurantOwnerById(id);
+  }
 
-    @PostMapping
-    public RestaurantOwnerEntity addRestaurantOwner(@RequestBody RestaurantOwnerEntity restaurantOwnerEntity) {
-        return restaurantOwnerService.addRestaurantOwner(restaurantOwnerEntity);
-    }
+  @PostMapping
+  public RestaurantOwnerEntity addRestaurantOwner(@RequestBody RestaurantOwnerEntity restaurantOwnerEntity) {
+    return restaurantOwnerService.addRestaurantOwner(restaurantOwnerEntity);
+  }
 
-    @PutMapping(path = "{id}")
-    public RestaurantOwnerEntity editRestaurantOwner(@PathVariable UUID id, @RequestBody RestaurantOwnerEntity restaurantOwnerEntity) {
-        return restaurantOwnerService.editRestaurantOwner(id, restaurantOwnerEntity);
-    }
+  @PutMapping(path = "{id}")
+  public RestaurantOwnerEntity editRestaurantOwner(@PathVariable UUID id, @RequestBody RestaurantOwnerEntity restaurantOwnerEntity) {
+    return restaurantOwnerService.editRestaurantOwner(id, restaurantOwnerEntity);
+  }
 
-    @DeleteMapping(path = "{id}")
-    public RestaurantOwnerEntity deleteRestaurantOwner(@PathVariable UUID id) {
-        return restaurantOwnerService.deleteRestaurantOwner(id);
-    }
+  @DeleteMapping(path = "{id}")
+  public RestaurantOwnerEntity deleteRestaurantOwner(@PathVariable UUID id) {
+    return restaurantOwnerService.deleteRestaurantOwner(id);
+  }
 }

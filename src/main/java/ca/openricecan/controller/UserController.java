@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "/api/v1/user")
+@RequestMapping("api/v1/user")
 public class UserController {
-    private final UserService userService;
+  private final UserService userService;
 
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+  @Autowired
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
 
-    @GetMapping
-    public Iterable<UserEntity> getUserList() {
-        return userService.getAllUsers();
-    }
+  @GetMapping
+  public Iterable<UserEntity> getUserList() {
+    return userService.getAllUsers();
+  }
 
-    @GetMapping(path = "{id}")
-    public UserEntity getUserById(@PathVariable UUID id){
-        return userService.getUserById(id);
-    }
+  @GetMapping(path = "{id}")
+  public UserEntity getUserById(@PathVariable UUID id) {
+    return userService.getUserById(id);
+  }
 
-    @PostMapping
-    public UserEntity addUser(@RequestBody UserEntity userEntity) {
-        return userService.addUser(userEntity);
-    }
+  @PostMapping
+  public UserEntity addUser(@RequestBody UserEntity userEntity) {
+    return userService.addUser(userEntity);
+  }
 
-    @PutMapping(path = "{id}")
-    public UserEntity editUser(@PathVariable UUID id, @RequestBody UserEntity userEntity) {
-        return userService.editUser(id, userEntity);
-    }
+  @PutMapping(path = "{id}")
+  public UserEntity editUser(@PathVariable UUID id, @RequestBody UserEntity userEntity) {
+    return userService.editUser(id, userEntity);
+  }
 
-    @DeleteMapping(path = "{id}")
-    public UserEntity deleteUser(@PathVariable UUID id) {
-        return userService.deleteUser(id);
-    }
+  @DeleteMapping(path = "{id}")
+  public UserEntity deleteUser(@PathVariable UUID id) {
+    return userService.deleteUser(id);
+  }
 }

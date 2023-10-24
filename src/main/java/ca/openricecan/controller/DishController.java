@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "/api/v1/dish")
+@RequestMapping("api/v1/dish")
 public class DishController {
-    private final DishService dishService;
+  private final DishService dishService;
 
-    @Autowired
-    public DishController(DishService dishService) {
-        this.dishService = dishService;
-    }
+  @Autowired
+  public DishController(DishService dishService) {
+    this.dishService = dishService;
+  }
 
-    @GetMapping
-    public Iterable<DishEntity> getDishList() {
-        return dishService.getAllDishes();
-    }
+  @GetMapping
+  public Iterable<DishEntity> getDishList() {
+    return dishService.getAllDishes();
+  }
 
-    @GetMapping(path = "{id}")
-    public DishEntity getDishById(@PathVariable UUID id) {
-        return dishService.getDishById(id);
-    }
+  @GetMapping(path = "{id}")
+  public DishEntity getDishById(@PathVariable UUID id) {
+    return dishService.getDishById(id);
+  }
 
-    @PostMapping
-    public DishEntity addDish(@RequestBody DishEntity dishEntity) {
-        return dishService.addDish(dishEntity);
-    }
+  @PostMapping
+  public DishEntity addDish(@RequestBody DishEntity dishEntity) {
+    return dishService.addDish(dishEntity);
+  }
 
-    @PutMapping(path = "{id}")
-    public DishEntity editDish(@PathVariable UUID id, @RequestBody DishEntity dishEntity) {
-        return dishService.editDish(id, dishEntity);
-    }
+  @PutMapping(path = "{id}")
+  public DishEntity editDish(@PathVariable UUID id, @RequestBody DishEntity dishEntity) {
+    return dishService.editDish(id, dishEntity);
+  }
 
-    @DeleteMapping(path = "{id}")
-    public DishEntity deleteDish(@PathVariable UUID id) {
-        return dishService.deleteDish(id);
-    }
+  @DeleteMapping(path = "{id}")
+  public DishEntity deleteDish(@PathVariable UUID id) {
+    return dishService.deleteDish(id);
+  }
 }
