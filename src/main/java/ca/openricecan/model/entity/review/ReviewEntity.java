@@ -3,8 +3,11 @@ package ca.openricecan.model.entity.review;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -38,24 +41,15 @@ public class ReviewEntity {
     @Column(name = "spending")
     private Integer spending;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt;
+    private Date createdAt;
 
+    @LastModifiedDate
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private Date modifiedAt;
 
     @Column(name = "active")
-    private Boolean active;
+    private Boolean active = true;
 
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-        this.setModifiedAt(ZonedDateTime.now());
-    }
-
-    @PreUpdate
-    void onPreUpdate() {
-        this.setModifiedAt(ZonedDateTime.now());
-    }
 }
