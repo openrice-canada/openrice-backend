@@ -3,6 +3,7 @@ package ca.openricecan.model.entity.review;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -51,5 +52,11 @@ public class ReviewEntity {
 
     @Column(name = "active")
     private Boolean active = true;
+
+    @Formula("(select public.user.username from public.user where public.user.user_id = user_id)")
+    private String username;
+
+    @Formula("(select restaurant.name from restaurant where restaurant.restaurant_id = restaurant_id)")
+    private String restaurantName;
 
 }
