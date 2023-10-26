@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Formula;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
@@ -47,9 +49,11 @@ public class RestaurantEntity {
     @Column(name = "opening_hours")
     private String openingHours;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
     private Date createdAt;
 
+    @LastModifiedDate
     @Column(name = "modified_at")
     private Date modifiedAt;
 
