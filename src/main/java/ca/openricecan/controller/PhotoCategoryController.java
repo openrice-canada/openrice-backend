@@ -10,7 +10,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("api/v1/photo-category")
 public class PhotoCategoryController {
-  private final PhotoCategoryService photoCategoryService;
+    private final PhotoCategoryService photoCategoryService;
 
   @Autowired
   public PhotoCategoryController(PhotoCategoryService photoCategoryService) {

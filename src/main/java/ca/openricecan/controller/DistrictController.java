@@ -10,12 +10,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping("api/v1/district")
 public class DistrictController {
-  private final DistrictService districtService;
+    private final DistrictService districtService;
 
-  @Autowired
-  public DistrictController(DistrictService districtService) {
-    this.districtService = districtService;
-  }
+    @Autowired
+    public DistrictController(DistrictService districtService) {
+        this.districtService = districtService;
+    }
 
   @GetMapping
   public Iterable<DistrictEntity> getDistrictList() {
