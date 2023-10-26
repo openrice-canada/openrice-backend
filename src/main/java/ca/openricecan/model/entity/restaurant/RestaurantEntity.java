@@ -49,6 +49,9 @@ public class RestaurantEntity {
     @Column(name = "opening_hours")
     private String openingHours;
 
+    @Column(name = "cover_image_url")
+    private String coverImageUrl;
+
     @CreatedDate
     @Column(name = "created_at", updatable = false)
     private Date createdAt;
