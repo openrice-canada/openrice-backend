@@ -3,10 +3,9 @@ package ca.openricecan.model.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.Formula;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
@@ -46,18 +45,31 @@ public class RestaurantEntity {
     @Column(name = "opening_hours")
     private String openingHours;
 
-    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private Date createdAt;
+    private ZonedDateTime createdAt;
 
-    @LastModifiedDate
     @Column(name = "modified_at")
-    private Date modifiedAt;
+    private ZonedDateTime modifiedAt;
 
     @Column(name = "active")
-    private Boolean active = true;
-//
-//    @Column(name = "photo")
-//    private String photo;
+    private Boolean active;
+
+    @Formula("(select sum(review.rating)/count(review.rating) from review where review.restaurant_id = restaurant_id)")
+    private Float averageRating;
+
+    @Formula("(select count(review.rating) from review where review.restaurant_id = restaurant_id)")
+    private Integer reviewCount;
+
+    @PrePersist
+    void onPrePersist() {
+        this.setActive(true);
+        this.setCreatedAt(ZonedDateTime.now());
+        this.setModifiedAt(ZonedDateTime.now());
+    }
+
+    @PreUpdate
+    void onUpdate() {
+        this.setModifiedAt(ZonedDateTime.now());
+    }
 
 }
