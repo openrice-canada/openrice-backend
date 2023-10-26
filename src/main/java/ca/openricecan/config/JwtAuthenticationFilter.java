@@ -1,6 +1,6 @@
 package ca.openricecan.config;
 
-import ca.openricecan.service.user.JwtService;
+import ca.openricecan.service.auth.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

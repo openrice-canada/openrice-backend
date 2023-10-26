@@ -1,9 +1,9 @@
-package ca.openricecan.service.user;
+package ca.openricecan.service.auth;
 
 import ca.openricecan.model.dto.user.AuthenticationRequest;
 import ca.openricecan.model.dto.user.AuthenticationResponse;
 import ca.openricecan.model.dto.user.RegisterRequest;
-import ca.openricecan.model.entity.user.Role;
+import ca.openricecan.model.utils.user.Role;
 import ca.openricecan.model.entity.user.UserEntity;
 import ca.openricecan.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
