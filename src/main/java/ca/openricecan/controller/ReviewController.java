@@ -18,8 +18,10 @@ public class ReviewController {
   }
 
   @GetMapping
-  public Iterable<ReviewEntity> gerReviewList() {
-    return reviewService.getAllReviews();
+  public Iterable<ReviewEntity> gerReviewList(
+          @RequestParam UUID restaurantId
+  ) {
+    return reviewService.getAllReviews(restaurantId);
   }
 
   @GetMapping(path = "{id}")

@@ -16,8 +16,18 @@ public class ReviewService {
     this.reviewRepository = reviewRepository;
   }
 
-  public Iterable<ReviewEntity> getAllReviews() {
-    return reviewRepository.findAll();
+  public Iterable<ReviewEntity> getAllReviews(UUID restaurantId) {
+    if (restaurantId == null) {
+      return reviewRepository
+              .findAll()
+              .stream()
+              .toList();
+    }
+    return reviewRepository
+            .findAll()
+            .stream()
+            .filter(restaurant -> restaurant.getRestaurantId() == restaurantId)
+            .toList();
   }
 
   public ReviewEntity getReviewById(UUID id) {
