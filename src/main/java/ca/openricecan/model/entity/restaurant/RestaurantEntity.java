@@ -3,8 +3,10 @@ package ca.openricecan.model.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 import java.util.UUID;
@@ -13,6 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Table(name = "restaurant", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class RestaurantEntity {
     @Id
     @GeneratedValue
@@ -56,8 +59,11 @@ public class RestaurantEntity {
 
     @Column(name = "active")
     private Boolean active = true;
-//
-//    @Column(name = "photo")
-//    private String photo;
+
+    @Formula("(select sum(review.rating)/count(review.rating) from review where review.restaurant_id = restaurant_id)")
+    private Float averageRating;
+
+    @Formula("(select count(review.rating) from review where review.restaurant_id = restaurant_id)")
+    private Integer reviewCount;
 
 }

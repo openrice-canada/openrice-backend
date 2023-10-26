@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Formula;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Table(name = "review", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class ReviewEntity {
   @Id
   @GeneratedValue
