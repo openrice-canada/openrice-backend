@@ -17,8 +17,20 @@ public class RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public Iterable<RestaurantEntity> getAllRestaurants() {
-        return restaurantRepository.findAll();
+    public Iterable<RestaurantEntity> searchRestaurant(
+            String name,
+            Integer limit,
+            Integer offset
+    ) {
+        if (name == null) return restaurantRepository.findAll().stream()
+                .skip(offset)
+                .limit(limit)
+                .toList();
+        return restaurantRepository.findAll().stream()
+                .filter(restaurant -> restaurant.getName().toLowerCase().contains(name.toLowerCase()))
+                .skip(offset)
+                .limit(limit)
+                .toList();
     }
 
     public RestaurantEntity getRestaurantById(UUID id) {

@@ -18,8 +18,12 @@ public class RestaurantController {
   }
 
   @GetMapping
-  public Iterable<RestaurantEntity> getRestaurantList() {
-    return restaurantService.getAllRestaurants();
+  public Iterable<RestaurantEntity> getRestaurantList(
+          @RequestParam(required = false) String name,
+          @RequestParam(defaultValue = "10") Integer limit,
+          @RequestParam(defaultValue = "0") Integer offset
+  ) {
+    return restaurantService.searchRestaurant(name, limit, offset);
   }
 
   @GetMapping(path = "{id}")
