@@ -3,14 +3,17 @@ package ca.openricecan.model.entity.payment;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "payment_method", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class PaymentMethodEntity {
     @Id
     @GeneratedValue
@@ -20,16 +23,11 @@ public class PaymentMethodEntity {
     @Column(name = "name")
     private String name;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt;
+    private Date createdAt;
 
     @Column(name = "active")
-    private Boolean active;
-
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-    }
+    private Boolean active = true;
 
 }

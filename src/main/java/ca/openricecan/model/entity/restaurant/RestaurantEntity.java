@@ -4,14 +4,16 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Formula;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "restaurant", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class RestaurantEntity {
     @Id
     @GeneratedValue
@@ -46,30 +48,18 @@ public class RestaurantEntity {
     private String openingHours;
 
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt;
+    private Date createdAt;
 
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private Date modifiedAt;
 
     @Column(name = "active")
-    private Boolean active;
+    private Boolean active = true;
 
     @Formula("(select sum(review.rating)/count(review.rating) from review where review.restaurant_id = restaurant_id)")
     private Float averageRating;
 
     @Formula("(select count(review.rating) from review where review.restaurant_id = restaurant_id)")
     private Integer reviewCount;
-
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-        this.setModifiedAt(ZonedDateTime.now());
-    }
-
-    @PreUpdate
-    void onUpdate() {
-        this.setModifiedAt(ZonedDateTime.now());
-    }
 
 }
