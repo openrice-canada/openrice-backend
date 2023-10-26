@@ -3,14 +3,17 @@ package ca.openricecan.model.entity.photo;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "photo", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class PhotoEntity {
     @Id
     @GeneratedValue
@@ -26,16 +29,11 @@ public class PhotoEntity {
     @Column(name = "photo_address")
     private String photoAddress;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt;
+    private Date createdAt;
 
     @Column(name = "active")
-    private Boolean active;
-
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-    }
+    private Boolean active = true;
 
 }
