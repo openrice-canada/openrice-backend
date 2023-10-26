@@ -3,15 +3,19 @@ package ca.openricecan.model.entity.restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "restaurant", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class RestaurantEntity {
     @Id
     @GeneratedValue
@@ -45,28 +49,21 @@ public class RestaurantEntity {
     @Column(name = "opening_hours")
     private String openingHours;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt = ZonedDateTime.now();
+    private Date createdAt;
 
     @LastModifiedDate
     @Column(name = "modified_at")
-    private ZonedDateTime modifiedAt;
+    private Date modifiedAt;
 
     @Column(name = "active")
-    private boolean active;
-//
-//    @Column(name = "photo")
-//    private String photo;
+    private Boolean active = true;
 
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-        this.setModifiedAt(ZonedDateTime.now());
-    }
+    @Formula("(select sum(review.rating)/count(review.rating) from review where review.restaurant_id = restaurant_id)")
+    private Float averageRating;
 
-    @PreUpdate
-    void onPreUpdate() {
-        this.setModifiedAt(ZonedDateTime.now());
-    }
+    @Formula("(select count(review.rating) from review where review.restaurant_id = restaurant_id)")
+    private Integer reviewCount;
+
 }

@@ -14,13 +14,13 @@ public class MainApplication {
     SpringApplication.run(MainApplication.class, args);
   }
 
-  @Bean
-  public WebMvcConfigurer corsConfigure() {
-    return new WebMvcConfigurer() {
-      @Override
-      public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:3865", "https://openricecan.netlify.app/");
-      }
-    };
-  }
+//  @Bean
+//  public WebMvcConfigurer corsConfigure() {
+//    return new WebMvcConfigurer() {
+//      @Override
+//      public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**").allowedOrigins("http://localhost:3000", "http://localhost:3865", "https://openricecan.netlify.app/");
+//      }
+//    };
+//  }
 }

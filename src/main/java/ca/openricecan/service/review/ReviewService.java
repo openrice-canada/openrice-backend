@@ -9,37 +9,36 @@ import java.util.UUID;
 
 @Service
 public class ReviewService {
-    private final ReviewRepository reviewRepository;
+  private final ReviewRepository reviewRepository;
 
-    @Autowired
-    public ReviewService(ReviewRepository reviewRepository) {
-        this.reviewRepository = reviewRepository;
-    }
+  @Autowired
+  public ReviewService(ReviewRepository reviewRepository) {
+    this.reviewRepository = reviewRepository;
+  }
 
-    public Iterable<ReviewEntity> getAllReviews() {
-        return reviewRepository.findAll();
-    }
+  public Iterable<ReviewEntity> getAllReviews() {
+    return reviewRepository.findAll();
+  }
 
-    public ReviewEntity getReviewById(UUID id) {
-        return reviewRepository.findById(id).orElse(null);
-    }
+  public ReviewEntity getReviewById(UUID id) {
+    return reviewRepository.findById(id).orElse(null);
+  }
 
-    public ReviewEntity addReview(ReviewEntity reviewEntity) {
-        return reviewRepository.save(reviewEntity);
-    }
+  public ReviewEntity addReview(ReviewEntity reviewEntity) {
+    return reviewRepository.save(reviewEntity);
+  }
 
-    public ReviewEntity editReview(UUID id, ReviewEntity reviewEntity) {
-        return reviewRepository.findById(id).map(review -> {
-            reviewEntity.setReviewId(id);
-            return reviewRepository.save(reviewEntity);
-        }).orElse(null);
-    }
+  public ReviewEntity editReview(UUID id, ReviewEntity reviewEntity) {
+    return reviewRepository.findById(id).map(review -> {
+      reviewEntity.setReviewId(id);
+      return reviewRepository.save(reviewEntity);
+    }).orElse(null);
+  }
 
-    public ReviewEntity deleteReview(UUID id) {
-        return reviewRepository.findById(id).map(review -> {
-            review.setActive(false);
-            return reviewRepository.save(review);
-        }).orElse(null);
-    }
-
+  public ReviewEntity deleteReview(UUID id) {
+    return reviewRepository.findById(id).map(review -> {
+      review.setActive(false);
+      return reviewRepository.save(review);
+    }).orElse(null);
+  }
 }

@@ -3,14 +3,17 @@ package ca.openricecan.model.entity.subscribe;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "subscribe", schema = "public")
+@EntityListeners(AuditingEntityListener.class)
 public class SubscribeEntity {
     @Id
     @GeneratedValue
@@ -23,15 +26,11 @@ public class SubscribeEntity {
     @Column(name = "restaurant_id")
     private UUID restaurantId;
 
+    @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private ZonedDateTime createdAt;
+    private Date createdAt;
 
     @Column(name = "active")
-    private Boolean active;
+    private Boolean active = true;
 
-    @PrePersist
-    void onPrePersist() {
-        this.setActive(true);
-        this.setCreatedAt(ZonedDateTime.now());
-    }
 }
