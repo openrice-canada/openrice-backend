@@ -3,7 +3,7 @@ package ca.openricecan.controller;
 import ca.openricecan.model.dto.user.AuthenticationRequest;
 import ca.openricecan.model.dto.user.AuthenticationResponse;
 import ca.openricecan.model.dto.user.RegisterRequest;
-import ca.openricecan.service.user.AuthenticationService;
+import ca.openricecan.service.auth.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

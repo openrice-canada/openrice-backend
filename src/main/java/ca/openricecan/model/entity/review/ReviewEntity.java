@@ -42,21 +42,20 @@ public class ReviewEntity {
   @Column(name = "spending")
   private Integer spending;
 
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
-    private Date createdAt;
+  @CreatedDate
+  @Column(name = "created_at", updatable = false)
+  private Date createdAt;
 
-    @LastModifiedDate
-    @Column(name = "modified_at")
-    private Date modifiedAt;
+  @LastModifiedDate
+  @Column(name = "modified_at")
+  private Date modifiedAt;
 
-    @Column(name = "active")
-    private Boolean active = true;
+  @Column(name = "active")
+  private Boolean active = true;
 
-    @Formula("(select public.user.username from public.user where public.user.user_id = user_id)")
-    private String username;
+  @Formula("(select public.user.username from public.user where public.user.user_id = user_id)")
+  private String username;
 
-    @Formula("(select restaurant.name from restaurant where restaurant.restaurant_id = restaurant_id)")
-    private String restaurantName;
-
+  @Formula("(select restaurant.name from restaurant where restaurant.restaurant_id = restaurant_id)")
+  private String restaurantName;
 }

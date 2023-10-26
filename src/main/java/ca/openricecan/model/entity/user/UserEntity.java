@@ -1,7 +1,11 @@
 package ca.openricecan.model.entity.user;
 
+import ca.openricecan.model.utils.user.Role;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -62,15 +66,15 @@ public class UserEntity implements UserDetails {
     return password;
   }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
+  @Override
+  public String getUsername() {
+    return username;
+  }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return active;
-    }
+  @Override
+  public boolean isAccountNonExpired() {
+    return active;
+  }
 
   @Override
   public boolean isAccountNonLocked() {
