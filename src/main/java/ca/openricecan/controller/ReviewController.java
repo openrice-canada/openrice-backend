@@ -19,7 +19,7 @@ public class ReviewController {
 
   @GetMapping
   public Iterable<ReviewEntity> gerReviewList(
-          @RequestParam UUID restaurantId
+          @RequestParam(required = false) UUID restaurantId
   ) {
     return reviewService.getAllReviews(restaurantId);
   }
