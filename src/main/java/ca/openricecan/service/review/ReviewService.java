@@ -26,7 +26,7 @@ public class ReviewService {
     return reviewRepository
             .findAll()
             .stream()
-            .filter(restaurant -> restaurant.getRestaurantId() == restaurantId)
+            .filter(restaurant -> restaurant.getRestaurantId().equals(restaurantId))
             .toList();
   }
 
