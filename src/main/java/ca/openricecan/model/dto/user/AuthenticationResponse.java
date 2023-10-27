@@ -1,5 +1,6 @@
 package ca.openricecan.model.dto.user;
 
+import ca.openricecan.model.entity.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthenticationResponse {
   private String token;
+  private UserEntity userEntity;
   private String message;
 }
