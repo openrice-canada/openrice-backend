@@ -56,4 +56,4 @@ docker-compose.yml
 .npmrc
 .circleci/
 .gitlab-ci.yml
-cache/
+cache
