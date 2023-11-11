@@ -19,15 +19,15 @@ public class ReviewService {
   public Iterable<ReviewEntity> getAllReviews(UUID restaurantId) {
     if (restaurantId == null) {
       return reviewRepository
-              .findAll()
-              .stream()
-              .toList();
+        .findAll()
+        .stream()
+        .toList();
     }
     return reviewRepository
-            .findAll()
-            .stream()
-            .filter(restaurant -> restaurant.getRestaurantId().equals(restaurantId))
-            .toList();
+      .findAll()
+      .stream()
+      .filter(restaurant -> restaurant.getRestaurantId().equals(restaurantId))
+      .toList();
   }
 
   public ReviewEntity getReviewById(UUID id) {
