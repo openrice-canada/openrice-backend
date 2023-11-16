@@ -1,7 +1,11 @@
-# Openrice Canada Backend
+# Openrice Backend
 
-A openrice server using `Java`, `Spring Boot`.
+An openrice backend uses `Java` and `Spring Boot`.
 
 ## 🔧 Controllers
 
 **users**, **restaurants**, **photos**, **photo categories**, **dishes**, **districts**
+
+## License
+
+Openrice Backend is licensed under [GNU General Public License v3.0](LICENSE).
